@@ -5,7 +5,9 @@ let randomNum = num => num = Math.floor(Math.random() * 3);
 
 function getPlayerChoice () {
     
-    return "RocK";
+    let rps = prompt("Pick your weapon! (Rock | Paper | Scissors)")
+
+    return rps;
 }
 
 
@@ -18,28 +20,78 @@ function getComputerChoice () {
 
 
 
-function playRound(playerSelection, computerSelection) {
-    let result;
+function playRound() {
+    let result = 0;
+    let playerSelection =  getPlayerChoice().toLowerCase();
+    let computerSelection = getComputerChoice();
+
+    console.log(`You chose ${playerSelection} and PC chose ${computerSelection}.`);
 
     if (playerSelection == computerSelection) {
-        result = "It is a draw!"
+        console.log("The round is a draw!");
     } else if (playerSelection == "rock"  && computerSelection == "paper") {
-        result = "You Lose! Paper beats Rock."
+        result = 1
+        console.log("You Lose the round! Paper beats Rock.");
     } else if (playerSelection == "paper"  && computerSelection == "scissors") {
-        result = "You Lose! Scissors beats Paper."
+        result = 1
+        console.log("You Lose the round! Scissors beats Paper.");
     } else if (playerSelection == "scissors"  && computerSelection == "rock") {
-        result = "You Lose! Rock beats Scissors."
+        result = 1
+        console.log("You Lose the round! Rock beats Scissors.");
     } else if (playerSelection == "paper"  && computerSelection == "rock") {
-        result = "You Win! Paper beats Rock."
+        result = 2
+        console.log("You Win the round! Paper beats Rock.");
     } else if (playerSelection == "scissors"  && computerSelection == "paper") {
-        result = "You Win! Scissors beats Paper."
+        result = 2
+        console.log("You Win the round! Scissors beats Paper.");
     } else if (playerSelection == "rock"  && computerSelection == "scissors") {
-        result = "You Win! Rock beats Scissors."
+        result = 2
+        console.log("You Win the round! Rock beats Scissors.");
     }
 
     return result;
 }
 
-let playerSelection =  getPlayerChoice().toLowerCase();
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function keepScore(roundResult) {
+
+    if (roundResult == 1) {
+        computerScore++;
+    } else if (roundResult == 2) {
+        playerScore++;
+    }
+
+    console.log( `Player ${playerScore} - ${computerScore} Computer \n----------------------------------`);
+    
+    if ( computerScore == 5) {
+        console.log(`You LOST the game!`);
+        endCounter = computerScore;
+    } else if (playerScore == 5) {
+        console.log(`You WON the game!`);
+        endCounter = playerScore;
+    }
+
+    return endCounter;
+}
+
+let playerScore = 0;
+let computerScore = 0;
+let endCounter = 0;
+
+function game () {
+
+    // while (1 > 0) {
+    //     if (keepScore(playRound()) == 5) {
+    //         break;
+    //     } else {
+    //         continue
+    //     }
+    // }
+
+    do {
+        
+    } while (keepScore(playRound()) < 5);
+    
+    
+}
+
+game();
