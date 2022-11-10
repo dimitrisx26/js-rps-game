@@ -3,12 +3,12 @@
 
 let randomNum = num => num = Math.floor(Math.random() * 3);
 
-function getPlayerChoice () {
+// function getPlayerChoice () {
     
-    let rps = prompt("Pick your weapon! (Rock | Paper | Scissors)")
+//     let rps = prompt("Pick your weapon! (Rock | Paper | Scissors)")
 
-    return rps;
-}
+//     return rps;
+// }
 
 
 function getComputerChoice () {
@@ -62,36 +62,26 @@ function keepScore(roundResult) {
 
     console.log( `Player ${playerScore} - ${computerScore} Computer \n----------------------------------`);
     
-    if ( computerScore == 5) {
-        console.log(`You LOST the game!`);
-        endCounter = computerScore;
-    } else if (playerScore == 5) {
-        console.log(`You WON the game!`);
-        endCounter = playerScore;
-    }
+    // if ( computerScore == 5) {
+    //     console.log(`You LOST the game!`);
+    //     endCounter = computerScore;
+    // } else if (playerScore == 5) {
+    //     console.log(`You WON the game!`);
+    //     endCounter = playerScore;
+    // }
 
     return endCounter;
 }
 
 let playerScore = 0;
 let computerScore = 0;
-let endCounter = 0;
+// let endCounter = 0;
 
 function game () {
-
-    // while (1 > 0) {
-    //     if (keepScore(playRound()) == 5) {
-    //         break;
-    //     } else {
-    //         continue
-    //     }
-    // }
-
+    
     do {
         
     } while (keepScore(playRound()) < 5);
-    
-    
 }
 
 game();
