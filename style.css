@@ -40,12 +40,29 @@ body {
 
 .gameName {
     font-size: 36px;
-    
 }
 
 .weapon {
-    margin-top: 12%;
+    margin-top: 5%;
     font-size: 24px;
+}
+
+.choiceContainer {
+    position: absolute;
+    margin-top: 12%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.playerChoice {
+    margin-left: 5%;
+}
+
+.pcChoice {
+    margin-right: 5%;
 }
 
 .btnContainer button {

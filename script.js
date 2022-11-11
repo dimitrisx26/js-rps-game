@@ -1,7 +1,8 @@
 const buttons = document.querySelectorAll(".gameBtn");
 const restartBtn = document.querySelector(".restart");
 const scoreAnnouncement = document.querySelector(".score");
-
+const playerAnnouncement = document.querySelector(".playerChoice");
+const pcAnnouncement = document.querySelector(".pcChoice");
 const resultAnnouncement = document.querySelector(".result");
 
 
@@ -42,8 +43,9 @@ function playRound(playerChoice) {
     let playerSelection = playerChoice;
     let computerSelection = getComputerChoice();
 
-    console.log(`You chose ${playerSelection} and PC chose ${computerSelection}.`);
-
+    playerAnnouncement.innerText = `Player:  ${playerSelection}`;
+    pcAnnouncement.innerText = `Computer:  ${computerSelection}`;
+    
     if (playerSelection == computerSelection) {
         resultAnnouncement.innerText = "The round is a draw!";
     } else if (playerSelection == "rock" && computerSelection == "paper") {
