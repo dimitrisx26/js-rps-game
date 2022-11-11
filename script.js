@@ -1,5 +1,8 @@
 const buttons = document.querySelectorAll(".gameBtn");
+const restartBtn = document.querySelector(".restart");
+const scoreAnnouncement = document.querySelector(".score");
 
+const resultAnnouncement = document.querySelector(".result");
 
 
 
@@ -7,6 +10,17 @@ buttons.forEach(button => {
     button.addEventListener("click", () => {
         playerChoice = button.value;
         playRound(playerChoice);
+    });
+});
+
+restartBtn.addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    endCounter = 0;
+    scoreAnnouncement.innerText = "Player 0 - 0 Computer";
+    resultAnnouncement.innerText = "Let's Play!"
+    buttons.forEach(button => {
+        button.disabled = false;
     });
 });
 
@@ -31,25 +45,26 @@ function playRound(playerChoice) {
     console.log(`You chose ${playerSelection} and PC chose ${computerSelection}.`);
 
     if (playerSelection == computerSelection) {
-        console.log("The round is a draw!");
+        resultAnnouncement.innerText = "The round is a draw!";
     } else if (playerSelection == "rock" && computerSelection == "paper") {
         result = 1
-        console.log("You Lose the round! Paper beats Rock.");
+        resultAnnouncement.innerText = "You Lose the round! Paper beats Rock.";
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         result = 1
-        console.log("You Lose the round! Scissors beats Paper.");
+        resultAnnouncement.innerText = "You Lose the round! Scissors beats Paper.";
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         result = 1
-        console.log("You Lose the round! Rock beats Scissors.");
+        resultAnnouncement.innerText = "You Lose the round! Rock beats Scissors.";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         result = 2
-        console.log("You Win the round! Paper beats Rock.");
+        resultAnnouncement.innerText = "You Win the round! Paper beats Rock.";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         result = 2
-        console.log("You Win the round! Scissors beats Paper.");
+        resultAnnouncement.innerText = "You Win the round! Scissors beats Paper.";
+        
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         result = 2
-        console.log("You Win the round! Rock beats Scissors.");
+        resultAnnouncement.innerText = "You Win the round! Rock beats Scissors."
     }
 
     keepScore(result);
@@ -64,16 +79,16 @@ function keepScore(roundResult) {
         playerScore++;
     }
 
-    console.log(`Player ${playerScore} - ${computerScore} Computer \n----------------------------------`);
+    scoreAnnouncement.innerText = `Player ${playerScore} - ${computerScore} Computer`;
 
     if (computerScore == 5) {
-        console.log(`You LOST the game!`);
+        resultAnnouncement.innerText = `You LOST the game!`;
         endCounter = computerScore;
         buttons.forEach(button => {
             button.disabled = true;
         });
     } else if (playerScore == 5) {
-        console.log(`You WON the game!`);
+        resultAnnouncement.innerText = `You WON the game!`;
         endCounter = playerScore;
         buttons.forEach(button => {
             button.disabled = true;

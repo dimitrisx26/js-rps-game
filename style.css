@@ -44,7 +44,7 @@ body {
 }
 
 .weapon {
-    margin-top: 15%;
+    margin-top: 12%;
     font-size: 24px;
 }
 
@@ -91,7 +91,7 @@ body {
 }
 
 .score {
-    margin-top: -20%;
+    margin-top: -25%;
     font-size: 28px;
 }
 
@@ -137,5 +137,9 @@ body {
 @media (min-width: 768px) {
     .btnContainer button {
         width: 200px;
+    }
+
+    .score {
+        margin-top: -15%;
     }
 }
